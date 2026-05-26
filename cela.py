@@ -5,7 +5,7 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_openai import ChatOpenAI
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-from langchain.chains import RetrievalQA
+from langchain_community.chains import RetrievalQA
 from langchain_core.prompts import PromptTemplate
 from dotenv import load_dotenv
 import os
