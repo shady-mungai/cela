@@ -4,7 +4,9 @@ from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_openai import ChatOpenAI
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain.prompts import PromptTemplate
+
+from langchain.chains import RetrievalQA
+from langchain_core.prompts import PromptTemplate
 from dotenv import load_dotenv
 import os
 
@@ -51,10 +53,10 @@ initial_prompt = PromptTemplate(
 refine_prompt_template = """You are a professional company assistant named Cela.
 You have an existing answer and new context to refine it.
 Rules:
-- Only use information from the provided context
-- If the new context isn't useful, return the existing answer unchanged
-- Be concise and clear
-- Do not hallucinate
+ Only use information from the provided context
+ If the new context isn't useful, return the existing answer unchanged
+ Be concise and clear
+ Do not hallucinate
 
 Existing Answer:
 {existing_answer}
